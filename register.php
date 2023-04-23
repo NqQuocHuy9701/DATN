@@ -1,14 +1,16 @@
 <?php
-if (isset($_POST['Register'])) {
-    $tenkhachhang = $_POST['hovaten'];
+include './admin/config/config.php';
+
+if (isset($_POST['dangky'])) {
+    $tenkhachhang = $_POST['username'];
     $email = $_POST['email'];
-    $dienthoai = $_POST['dienthoai'];
-    $diachi = $_POST['diachi'];
-    $matkhau = md5($_POST['matkhau']);
-    $sql_dangki = mysqli_query($mysqli, "INSERT INTO tbl_users(tenkhachhang, email, diachi, matkhau, sodt) VALUE('" . $tenkhachhang . "', '" . $email . "', '" . $diachi . "', '" . $matkhau . "', '" . $dienthoai . "')");
+    $dienthoai = $_POST['phone'];
+    $matkhau = md5($_POST['password']);
+    $diachi = $_POST['address'];
+    $sql_dangki = mysqli_query($mysqli, "INSERT INTO tbl_users(tenkhachhang, email, diachi, matkhau, sodt) VALUE('" . $tenkhachhang . "', '" . $email . "', '" . $dienthoai . "', '" . $matkhau . "', '" . $diachi . "')");
 
     if ($sql_dangki) {
-        echo '<p style = "color:green"> Bạn đã đăng kí thành công ! </p>';
+        echo '<p style = "color:green">Susscess !</p>';
     }
 }
 
@@ -57,7 +59,7 @@ if (isset($_POST['Register'])) {
                         <div class="hover">
                             <h4>New to our website?</h4>
                             <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-                            <a class="primary-btn" href="registration.html">Create an Account</a>
+                            <a class="primary-btn" href="DangNhap.php">LOGIN</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +67,7 @@ if (isset($_POST['Register'])) {
                     <div style="padding-top: 48px;" class="login_form_inner">
                         <h3>Register in to enter</h3>
 
-                        <form action="" autocomplete="off" method="POST" class="row register_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <!-- <form action="" autocomplete="off" method="POST" class="row register_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="name" name="hovaten" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'">
                             </div>
@@ -93,6 +95,37 @@ if (isset($_POST['Register'])) {
                             <div class="col-md-12 form-group">
                                 <button type="submit" value="Đăng kí" class="primary-btn" name="Register">Register</button>
                                 <a href="#">Forgot Password?</a>
+                            </div>
+                        </form> -->
+
+
+                        <form action="" autocomplete="off" method="POST" class="dangky row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="username" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="phone" placeholder="Điện thoại" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Điện thoại'">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="address" placeholder="Địa chỉ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ'">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="password" class="form-control" id="name" name="password" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mật khẩu'">
+                            </div>
+
+
+
+                            <!-- <div class="col-md-12 form-group">
+                                <div class="creat_account">
+                                    <input type="checkbox" id="f-option2" name="selector">
+                                    <label for="f-option2">Keep me logged in</label>
+                                </div>
+                            </div> -->
+                            <div class="col-md-12 form-group">
+                                <button type="submit" value="Đăng ký" class="primary-btn" name="dangky">Register</button>
                             </div>
                         </form>
 
@@ -175,7 +208,7 @@ if (isset($_POST['Register'])) {
                 <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </script> All rights reserved | This DATN is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Quốc Huy</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
